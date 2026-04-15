@@ -1,4 +1,6 @@
 .searchOverlay {
+
+
   position: fixed;
   top: 0;
   left: 0;
@@ -107,10 +109,15 @@
 }
 
 @keyframes highlightFlash {
-  0% { background-color: rgba(192, 57, 43, 0.2); }
-  100% { background-color: transparent; }
+  0% {
+    background-color: rgba(192, 57, 43, 0.2);
+  }
+
+  100% {
+    background-color: transparent;
+  }
 }
 
-.highlight {
-  // exported for use in tsx
-}
+// .highlight {
+//   // exported for use in tsx
+// }
