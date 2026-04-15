@@ -1,0 +1,59 @@
+.wrapper {
+  display: flex;
+  gap: $space-xs;
+  padding: $space-xxs $space-md;
+  max-width: $max-chat-width;
+  margin: 0 auto;
+  @include fade-in;
+}
+
+.avatar {
+  width: 2rem;
+  height: 2rem;
+  border-radius: $radius-full;
+  background: var(--bg-tertiary);
+  @include flex-center;
+  flex-shrink: 0;
+  font-size: 1rem;
+}
+
+.bubble {
+  background: var(--bubble-assistant);
+  padding: $space-sm $space-md;
+  border-radius: $radius-lg;
+  border-bottom-left-radius: $space-xxs;
+}
+
+.dots {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  height: 1.25rem;
+
+  span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--text-muted);
+    animation: bounce 1.4s ease-in-out infinite;
+
+    &:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    &:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+  }
+}
+
+@keyframes bounce {
+  0%, 60%, 100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  30% {
+    transform: translateY(-6px);
+    opacity: 1;
+  }
+}

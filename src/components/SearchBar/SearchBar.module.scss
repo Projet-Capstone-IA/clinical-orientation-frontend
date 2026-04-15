@@ -1,0 +1,116 @@
+.searchOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $z-modal;
+  @include fade-in;
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  gap: $space-xs;
+  padding: $space-xs $space-md;
+  height: $topbar-height;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+.searchIcon {
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: var(--text-primary);
+  font-size: $font-size-base;
+  outline: none;
+
+  &::placeholder {
+    color: var(--text-muted);
+  }
+}
+
+.count {
+  font-size: $font-size-xs;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.closeBtn {
+  @include icon-button(2rem);
+  color: var(--text-secondary);
+}
+
+.results {
+  background: var(--bg-secondary);
+  max-height: 50vh;
+  @include smooth-scroll;
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+.noResults {
+  @include flex-center;
+  padding: $space-xl;
+  font-size: $font-size-sm;
+  color: var(--text-muted);
+}
+
+.resultItem {
+  @include button-reset;
+  display: flex;
+  align-items: flex-start;
+  gap: $space-xs;
+  width: 100%;
+  padding: $space-sm $space-md;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  transition: background-color $transition-fast;
+
+  &:hover {
+    background: var(--bg-tertiary);
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.resultRole {
+  flex-shrink: 0;
+  font-size: $font-size-sm;
+}
+
+.resultText {
+  font-size: $font-size-sm;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  @include truncate;
+
+  mark {
+    background: rgba(192, 57, 43, 0.2);
+    color: var(--brand-primary);
+    border-radius: 2px;
+    padding: 0 2px;
+  }
+}
+
+// Highlight animation applied to messages
+:global(.highlight) {
+  animation: highlightFlash 2s ease-out;
+}
+
+@keyframes highlightFlash {
+  0% { background-color: rgba(192, 57, 43, 0.2); }
+  100% { background-color: transparent; }
+}
+
+.highlight {
+  // exported for use in tsx
+}

@@ -1,0 +1,48 @@
+// ========================================
+// Lydi Theme System (CSS Custom Properties)
+// ========================================
+
+:root,
+[data-theme='light'] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-tertiary: #f0f2f5;
+  --text-primary: #212529;
+  --text-secondary: #6c757d;
+  --text-muted: #adb5bd;
+  --bubble-assistant: #e9ecef;
+  --bubble-user: linear-gradient(135deg, #C0392B, #a93226);
+  --bubble-user-text: #ffffff;
+  --border: #dee2e6;
+  --shadow: rgba(0, 0, 0, 0.08);
+  --brand-primary: #C0392B;
+  --brand-primary-light: #E74C3C;
+  --brand-primary-dark: #8B1E10;
+  --overlay: rgba(0, 0, 0, 0.4);
+  --topbar-bg: rgba(255, 255, 255, 0.85);
+  --composer-bg: rgba(255, 255, 255, 0.92);
+  --input-bg: #f0f2f5;
+  --fab-shadow: 0 4px 14px rgba(192, 57, 43, 0.35);
+}
+
+[data-theme='dark'] {
+  --bg-primary: #0d1117;
+  --bg-secondary: #161b22;
+  --bg-tertiary: #21262d;
+  --text-primary: #e6edf3;
+  --text-secondary: #8b949e;
+  --text-muted: #484f58;
+  --bubble-assistant: #21262d;
+  --bubble-user: linear-gradient(135deg, #8B1E10, #5d0e05);
+  --bubble-user-text: #f0d0cc;
+  --border: #30363d;
+  --shadow: rgba(0, 0, 0, 0.3);
+  --brand-primary: #E74C3C;
+  --brand-primary-light: #f1736a;
+  --brand-primary-dark: #C0392B;
+  --overlay: rgba(0, 0, 0, 0.65);
+  --topbar-bg: rgba(13, 17, 23, 0.88);
+  --composer-bg: rgba(13, 17, 23, 0.92);
+  --input-bg: #21262d;
+  --fab-shadow: 0 4px 14px rgba(139, 30, 16, 0.5);
+}

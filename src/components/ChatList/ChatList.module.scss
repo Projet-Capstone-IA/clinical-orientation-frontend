@@ -1,0 +1,93 @@
+.chatList {
+  flex: 1;
+  @include smooth-scroll;
+  padding: calc(#{$topbar-height} + #{$space-md}) 0 calc(#{$composer-height} + #{$space-xl}) 0;
+}
+
+.scrollAnchor {
+  height: 1px;
+}
+
+// Empty state
+.emptyState {
+  @include flex-column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: $space-2xl $space-xl;
+  min-height: 60vh;
+  @include fade-in($transition-slow);
+}
+
+.emptyIcon {
+  font-size: 4rem;
+  margin-bottom: $space-md;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.emptyTitle {
+  font-size: $font-size-2xl;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: $space-xs;
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-primary-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.emptyText {
+  font-size: $font-size-base;
+  color: var(--text-secondary);
+  max-width: 20rem;
+  line-height: 1.6;
+  margin-bottom: $space-xl;
+}
+
+.suggestions {
+  @include flex-column;
+  gap: $space-xs;
+  width: 100%;
+  max-width: 22rem;
+}
+
+.suggestion {
+  @include button-reset;
+  padding: $space-sm $space-md;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: $radius-lg;
+  font-size: $font-size-sm;
+  color: var(--text-primary);
+  text-align: left;
+  transition: all $transition-fast;
+
+  &:hover {
+    border-color: var(--brand-primary);
+    background: var(--bg-secondary);
+    transform: translateX(4px);
+    color: var(--brand-primary);
+  }
+
+  &:active {
+    transform: translateX(2px) scale(0.98);
+  }
+}
+
+// Error banner
+.errorBanner {
+  @include flex-center;
+  padding: $space-xs $space-md;
+  margin: $space-xs $space-md;
+  background: rgba(231, 76, 60, 0.1);
+  border: 1px solid rgba(231, 76, 60, 0.3);
+  border-radius: $radius-md;
+  font-size: $font-size-sm;
+  color: #e74c3c;
+  @include fade-in;
+}

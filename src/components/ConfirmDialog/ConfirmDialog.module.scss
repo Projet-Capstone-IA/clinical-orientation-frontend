@@ -1,0 +1,70 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--overlay);
+  z-index: $z-toast;
+  @include flex-center;
+  @include fade-in;
+}
+
+.dialog {
+  background: var(--bg-secondary);
+  border-radius: $radius-lg;
+  padding: $space-xl;
+  max-width: 22rem;
+  width: calc(100% - #{$space-xl * 2});
+  box-shadow: 0 8px 32px var(--shadow);
+  @include fade-in;
+}
+
+.title {
+  font-size: $font-size-lg;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: $space-xs;
+}
+
+.message {
+  font-size: $font-size-sm;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: $space-lg;
+}
+
+.actions {
+  display: flex;
+  gap: $space-sm;
+  justify-content: flex-end;
+}
+
+.cancelBtn,
+.confirmBtn {
+  @include button-reset;
+  padding: $space-xs $space-md;
+  border-radius: $radius-md;
+  font-size: $font-size-sm;
+  font-weight: 600;
+  transition: all $transition-fast;
+}
+
+.cancelBtn {
+  color: var(--text-secondary);
+  background: var(--bg-tertiary);
+
+  &:hover {
+    background: var(--border);
+  }
+}
+
+.confirmBtn {
+  color: #fff;
+  background: var(--brand-primary);
+
+  &:hover {
+    filter: brightness(1.1);
+  }
+
+  &:active {
+    transform: scale(0.96);
+  }
+}

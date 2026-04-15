@@ -1,0 +1,38 @@
+.fab {
+  position: fixed;
+  bottom: calc(#{$composer-height} + #{$space-lg} + env(safe-area-inset-bottom, 0px));
+  right: $space-md;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: $radius-full;
+  border: none;
+  background: linear-gradient(135deg, $brand-primary, $brand-primary-light);
+  color: #fff;
+  cursor: pointer;
+  @include flex-center;
+  box-shadow: var(--fab-shadow);
+  z-index: $z-dropdown;
+  transition: all $transition-fast;
+  animation: fabEntry 0.5s $transition-spring backwards;
+  animation-delay: 0.3s;
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(192, 57, 43, 0.45);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+@keyframes fabEntry {
+  from {
+    opacity: 0;
+    transform: scale(0) rotate(-180deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}

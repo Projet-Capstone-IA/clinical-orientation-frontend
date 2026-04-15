@@ -1,0 +1,14 @@
+.app {
+  height: 100%;
+  @include flex-column;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-primary);
+}
+
+.main {
+  flex: 1;
+  @include flex-column;
+  position: relative;
+  overflow: hidden;
+}

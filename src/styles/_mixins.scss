@@ -1,0 +1,122 @@
+// ========================================
+// Lydi Mixins
+// ========================================
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin glass-effect {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+}
+
+@mixin smooth-scroll {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--text-muted) transparent;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--text-muted);
+    border-radius: $radius-full;
+  }
+}
+
+@mixin button-reset {
+  appearance: none;
+  border: none;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0;
+  outline: none;
+}
+
+@mixin icon-button($size: 2.25rem) {
+  @include button-reset;
+  @include flex-center;
+  width: $size;
+  height: $size;
+  border-radius: $radius-full;
+  transition: background-color $transition-fast, transform $transition-fast;
+
+  &:hover {
+    background-color: var(--bg-tertiary);
+  }
+
+  &:active {
+    transform: scale(0.92);
+  }
+}
+
+@mixin card {
+  background: var(--bg-secondary);
+  border-radius: $radius-lg;
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 3px var(--shadow);
+}
+
+@mixin shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--bg-tertiary) 25%,
+    var(--bg-secondary) 50%,
+    var(--bg-tertiary) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@mixin fade-in($duration: $transition-base) {
+  animation: fadeIn $duration forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@mixin slide-up($duration: $transition-slow) {
+  animation: slideUp $duration forwards;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}

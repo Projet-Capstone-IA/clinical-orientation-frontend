@@ -1,0 +1,128 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--overlay);
+  z-index: $z-modal;
+  @include flex-center;
+  @include fade-in;
+}
+
+.sheet {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-height: 85vh;
+  background: var(--bg-primary);
+  border-radius: $radius-xl $radius-xl 0 0;
+  @include flex-column;
+  @include slide-up;
+  box-shadow: 0 -4px 24px var(--shadow);
+}
+
+.dragHandle {
+  @include flex-center;
+  padding: $space-sm 0 $space-xxs;
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.grip {
+  width: 2.5rem;
+  height: 4px;
+  border-radius: $radius-full;
+  background: var(--text-muted);
+  opacity: 0.5;
+}
+
+.header {
+  @include flex-between;
+  padding: $space-xs $space-md $space-sm;
+  border-bottom: 1px solid var(--border);
+
+  h2 {
+    font-size: $font-size-lg;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: $space-xs;
+}
+
+.exportBtn,
+.closeBtn {
+  @include icon-button(2rem);
+  color: var(--text-secondary);
+
+  &:hover {
+    color: var(--brand-primary);
+  }
+}
+
+.content {
+  flex: 1;
+  @include smooth-scroll;
+  padding: $space-md;
+  min-height: 12rem;
+}
+
+.loader {
+  @include flex-column;
+  align-items: center;
+  justify-content: center;
+  gap: $space-md;
+  padding: $space-2xl;
+  color: var(--text-secondary);
+  font-size: $font-size-sm;
+}
+
+.spinner {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 3px solid var(--border);
+  border-top-color: var(--brand-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.empty {
+  @include flex-column;
+  align-items: center;
+  justify-content: center;
+  gap: $space-sm;
+  padding: $space-2xl;
+  color: var(--text-secondary);
+}
+
+.emptyIcon {
+  display: flex;
+  opacity: 0.5;
+}
+
+.spinning {
+  animation: spin 1s linear infinite;
+}
+
+.diagramContainer {
+  @include flex-center;
+  width: 100%;
+  min-height: 300px;
+  overflow: visible;
+
+  svg {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}
+

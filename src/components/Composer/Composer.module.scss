@@ -1,0 +1,94 @@
+.composer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: $space-xs $space-sm;
+  padding-bottom: calc(#{$space-xs} + env(safe-area-inset-bottom, 0px));
+  background: var(--composer-bg);
+  @include glass-effect;
+  border-top: 1px solid var(--border);
+  z-index: $z-sticky;
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: flex-end;
+  gap: $space-xs;
+  max-width: $max-chat-width;
+  margin: 0 auto;
+  background: var(--input-bg);
+  border-radius: $radius-xl;
+  padding: $space-xxs $space-xxs $space-xxs $space-md;
+  transition: box-shadow $transition-fast;
+
+  &:focus-within {
+    box-shadow: 0 0 0 2px var(--brand-primary);
+  }
+}
+
+.input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: $font-size-base;
+  line-height: 1.5;
+  resize: none;
+  outline: none;
+  padding: $space-xs 0;
+  min-height: 1.5rem;
+  max-height: 7.5rem;
+
+  &::placeholder {
+    color: var(--text-muted);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+.sendBtn {
+  @include button-reset;
+  @include flex-center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: $radius-full;
+  background: var(--text-muted);
+  color: #fff;
+  flex-shrink: 0;
+  transition: all $transition-fast;
+  transform: scale(0.9);
+
+  &.active {
+    background: var(--brand-primary);
+    transform: scale(1);
+    box-shadow: 0 2px 8px rgba(192, 57, 43, 0.3);
+  }
+
+  &:disabled {
+    cursor: default;
+  }
+
+  &.active:hover {
+    transform: scale(1.05);
+  }
+
+  &.active:active {
+    transform: scale(0.95);
+  }
+}
+
+.charCounter {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  align-self: flex-end;
+  padding-bottom: $space-xs;
+  padding-right: $space-xxs;
+  user-select: none;
+  pointer-events: none;
+  white-space: nowrap;
+}
+

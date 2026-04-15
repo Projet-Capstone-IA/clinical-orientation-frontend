@@ -1,0 +1,16 @@
+.separator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $space-md 0;
+}
+
+.label {
+  font-size: $font-size-xs;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--bg-tertiary);
+  padding: $space-xxs $space-sm;
+  border-radius: $radius-full;
+  letter-spacing: 0.03em;
+}

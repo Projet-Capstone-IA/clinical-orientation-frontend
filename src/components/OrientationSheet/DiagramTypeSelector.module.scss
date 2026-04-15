@@ -1,0 +1,41 @@
+.selector {
+  display: flex;
+  gap: 2px;
+  background: var(--bg-tertiary);
+  border-radius: $radius-md;
+  padding: 2px;
+}
+
+.option {
+  @include button-reset;
+  display: flex;
+  align-items: center;
+  gap: $space-xxs;
+  padding: $space-xxs $space-xs;
+  border-radius: calc(#{$radius-md} - 2px);
+  font-size: $font-size-xs;
+  color: var(--text-secondary);
+  transition: all $transition-fast;
+  white-space: nowrap;
+
+  &:hover {
+    color: var(--text-primary);
+    background: var(--bg-secondary);
+  }
+
+  &.active {
+    background: var(--brand-primary);
+    color: #fff;
+    font-weight: 600;
+  }
+}
+
+.icon {
+  font-size: 0.875rem;
+}
+
+.label {
+  @media (max-width: 480px) {
+    display: none;
+  }
+}
